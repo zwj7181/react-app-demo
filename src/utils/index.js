@@ -20,3 +20,25 @@ export function formatDateTime(datetime) {
   const timeStr = `${pad(datetime.getHours())}:${pad(datetime.getMinutes())}`;
   return `${dateStr} ${timeStr}`;
 }
+
+export function formatPhone(phone) {
+  let str = phone.toString().replace(/ /g, "");
+  let len = str.length;
+  switch (true) {
+    case len > 11: 
+      str = str.substr(0, 3) + ' ' + str.substr(3, 4) + ' ' + str.substr(7, 4);
+      this.value = str;
+      break;
+    case len > 7:
+      str = str.substr(0, 3) + ' ' + str.substr(3, 4) + ' ' + str.substr(7);
+      this.value = str;
+      break;
+    case len > 3:
+      str = str.substr(0, 3) + ' ' + str.substr(3);
+      this.value = str;
+      break;
+    default:
+      this.value = str;
+  }
+  return str;           
+}

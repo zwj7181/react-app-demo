@@ -6,3 +6,11 @@
     padding-top: 30px;
   }
 }
+
+.button {
+  background-color: #FF4974 !important;
+
+  &::before {
+    border-color: #FF4974 !important;
+  }
+}

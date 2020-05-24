@@ -12,13 +12,17 @@ import styles from './index.module.scss';
 export default function ModalButton({ children, label, type, onSubmit }) {
   const [visible, setViseble] = useState(false)
   const show = () => {
-    onSubmit();
+    const value = onSubmit();
+    console.log('object', value)
+    if (!value) {
+      return;
+    }
     setViseble(true);
   }
   const hide = () => setViseble(false)
   return (
     <>
-      <Button type={type} onClick={show}>
+      <Button type={type} onClick={show} className={styles.button}>
         {label}
       </Button>
       <Modal
