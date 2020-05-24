@@ -8,13 +8,24 @@ import React from 'react'
 import classNames from 'classnames'
 import styles from "./index.module.scss";
 
-export default function DatePickerItem({ onClick, required, children, extra, error }) {
+export default function DatePickerItem({
+  onClick,
+  required,
+  children,
+  extra,
+  error,
+  onErrorClick,
+}) {
   return (
     <div
-      className={classNames("am-list-item", "am-input-item", "am-list-item-middle", {
-        "am-input-error": error,
-      })}
-      onClick={onClick}
+      className={classNames(
+        "am-list-item",
+        "am-input-item",
+        "am-list-item-middle",
+        {
+          "am-input-error": error,
+        }
+      )}
     >
       <div className="am-list-line">
         <div className="am-input-label">
@@ -26,10 +37,13 @@ export default function DatePickerItem({ onClick, required, children, extra, err
           style={{
             color: extra.includes("请") ? "#bbb" : "#333",
           }}
+          onClick={onClick}
         >
           {extra}
         </div>
-        {error ? <div className="am-input-error-extra" /> : null}
+        {error ? (
+          <div className="am-input-error-extra" onClick={onErrorClick} />
+        ) : null}
       </div>
     </div>
   );

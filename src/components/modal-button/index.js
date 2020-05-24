@@ -13,7 +13,6 @@ export default function ModalButton({ children, label, type, onSubmit }) {
   const [visible, setViseble] = useState(false)
   const show = () => {
     const value = onSubmit();
-    console.log('object', value)
     if (!value) {
       return;
     }
