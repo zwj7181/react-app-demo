@@ -45,7 +45,7 @@ function App({
     }
     return null;
   };
-  
+
   const onSubmit = () => {
     let result = "";
     validateFields(
@@ -72,7 +72,7 @@ function App({
         const qrcodeValue = `${"ZJ"}#${valueStr}`;
         setValues(qrcodeValue);
         result = valueStr;
-        console.log(val, qrcodeValue);
+        // console.log(val, qrcodeValue);
       }
     );
     return result;
@@ -117,6 +117,13 @@ function App({
               onErrorClick={() => getError("idNO")}
               placeholder="请输入身份证号码"
               {...getFieldProps("idNO", {
+                validateFirst: true,
+                onChange: (value) => {
+                  if (value && value.length === 18) {
+                    const result = utils.checkIdNo(value);
+                    setFieldsValue({ dob: new Date(result.birthday) });
+                  }
+                },
                 rules: [
                   { required: true, message: "请输入身份证号码" },
                   {
@@ -125,7 +132,6 @@ function App({
                       if (!result.status) {
                         callback("请输入正确的身份证号码");
                       } else {
-                        setFieldsValue({ dob: new Date(result.birthday) });
                         callback();
                       }
                       throw new Error();
