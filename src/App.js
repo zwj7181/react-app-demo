@@ -35,7 +35,7 @@ function App({
       lmp: new Date(cacheValues.lmp),
       telephone: utils.formatPhone(cacheValues.telephone),
     });
-  }, []);
+  }, [setFieldsValue]);
   const getError = (name) => {
     const error = getFieldError(name);
     if (error) {
@@ -87,6 +87,7 @@ function App({
         <form>
           <List>
             <InputItem
+              clear
               type="tel"
               maxLength={12}
               error={getFieldError("outpatientNO")}
@@ -99,18 +100,19 @@ function App({
               就诊卡号
             </InputItem>
             <InputItem
-              {...getFieldProps("name", {
-                rules: [{ required: true, message: "请输入姓名" }],
-              })}
               clear
               maxLength={12}
               error={getFieldError("name")}
               onErrorClick={() => getError("name")}
               placeholder="请输入姓名"
+              {...getFieldProps("name", {
+                rules: [{ required: true, message: "请输入姓名" }],
+              })}
             >
               姓名
             </InputItem>
             <InputItem
+              clear
               type="tel"
               maxLength={18}
               error={getFieldError("idNO")}
@@ -139,7 +141,6 @@ function App({
                   },
                 ],
               })}
-              clear
             >
               身份证
             </InputItem>

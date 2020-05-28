@@ -18,7 +18,7 @@
   justify-content: center;
   font-size: calc(10px + 2vmin);
   color: #FF4974;
-  display: none;
+  // display: none;
 
   .logo {
     width: 30px;
@@ -38,7 +38,6 @@
   flex: 1;
 
   .tips {
-    margin-top: 35px;
     font-size: 12px;
     color: #999;
   }
@@ -51,7 +50,7 @@
   :global {
     .am-list-item {
       &.am-input-item {
-        height: 50px;
+        // height: 50px;
       }
     }
   }
@@ -74,7 +73,7 @@
     }
 
     .text {
-      width: 150px;
+      padding: 0 5px;
     }
   }
 }
