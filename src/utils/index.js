@@ -47,7 +47,8 @@ export function checkPhone(phone) {
   return false;
 }
 
-export function checkIdNo(card) {
+export function checkIdNo(c) {
+  const card = c && c.toUpperCase();
   let text = "";
   if (card === "") {
     text = "请输入身份证号码";

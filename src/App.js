@@ -130,8 +130,14 @@ function App({
                   { required: true, message: "请输入身份证号码" },
                   {
                     validator: async (rule, value, callback) => {
-                      const result = utils.checkIdNo(value);
-                      if (!result.status) {
+                      let status = false;
+                      if (value && value.length === 18) {
+                        const result = utils.checkIdNo(value);
+                        if (result.status) {
+                          status = true;
+                        }
+                      }
+                      if (!status) {
                         callback("请输入正确的身份证号码");
                       } else {
                         callback();
