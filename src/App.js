@@ -88,8 +88,8 @@ function App({
           <List>
             <InputItem
               clear
-              type="tel"
-              maxLength={12}
+              type="text"
+              maxLength={16}
               error={getFieldError("outpatientNO")}
               onErrorClick={() => getError("outpatientNO")}
               placeholder="请输入就诊卡号"
@@ -113,7 +113,7 @@ function App({
             </InputItem>
             <InputItem
               clear
-              type="tel"
+              type="text"
               maxLength={18}
               error={getFieldError("idNO")}
               onErrorClick={() => getError("idNO")}
