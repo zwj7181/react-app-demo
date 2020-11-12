@@ -1,6 +1,8 @@
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
-# 基于create-react-app脚手架的各种demo开发
+# 基于create-react-app脚手架的各种H5静态表单demo页面
+
+比如：obvue建档、陆丰妇幼建档
 
 ## Available Scripts
 
