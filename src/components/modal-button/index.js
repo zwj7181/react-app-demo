@@ -1,22 +1,28 @@
 /*
  * @Author: ZHONG JUN
  * @Date: 2020-05-23 22:25:34
- * @Description: 
- */ 
+ * @Description:
+ */
 
-import React, { useState } from 'react';
-import { Button, Modal } from 'antd-mobile';
+import React, { useState } from 'react'
+import { Button, Modal } from 'antd-mobile'
 
-import styles from './index.module.scss';
+import styles from './index.module.scss'
 
-export default function ModalButton({ children, label, type, onSubmit }) {
+export default function ModalButton({
+  children,
+  label,
+  type,
+  title,
+  onSubmit,
+}) {
   const [visible, setViseble] = useState(false)
   const show = () => {
-    const value = onSubmit();
+    const value = onSubmit()
     if (!value) {
-      return;
+      return
     }
-    setViseble(true);
+    setViseble(true)
   }
   const hide = () => setViseble(false)
   return (
@@ -27,6 +33,7 @@ export default function ModalButton({ children, label, type, onSubmit }) {
       <Modal
         closable
         transparent
+        title={title}
         visible={visible}
         maskClosable={false}
         onClose={hide}
@@ -35,5 +42,5 @@ export default function ModalButton({ children, label, type, onSubmit }) {
         <div className={styles.content}>{children}</div>
       </Modal>
     </>
-  );
+  )
 }

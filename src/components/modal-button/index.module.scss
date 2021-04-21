@@ -1,16 +1,16 @@
 .modal {
-  width: 300px;
+  // width: 300px;
 
   .content {
-    min-height: 270px;
+    min-height: 220px;
     padding-top: 30px;
   }
 }
 
 .button {
-  background-color: #FF4974 !important;
+  background-color: #ff4974 !important;
 
   &::before {
-    border-color: #FF4974 !important;
+    border-color: #ff4974 !important;
   }
 }
