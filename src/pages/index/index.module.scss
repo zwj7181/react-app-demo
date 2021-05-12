@@ -46,6 +46,18 @@
     color: #333 !important;
   }
 
+  .starred {
+    position: relative;
+    margin-right: 2px;
+    color: #ff4d4f;
+  }
+
+  .remark {
+    font-style: normal;
+    font-size: 14px;
+    color: #999;
+  }
+
   :global {
     .am-list-item {
       &.am-input-item {
