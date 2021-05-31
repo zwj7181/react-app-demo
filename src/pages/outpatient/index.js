@@ -1,3 +1,9 @@
+/*
+ * @Author       : ZhongJun
+ * @Date         : 2021-05-31
+ * @Descriptions : 门诊
+ */
+
 import React, { useState, useEffect } from "react";
 
 import {
@@ -18,7 +24,7 @@ import styles from "../index/index.module.scss";
 
 const nowTimeStamp = Date.now();
 
-function Test({
+function Outpatient({
   form: {
     getFieldProps,
     getFieldError,
@@ -28,9 +34,8 @@ function Test({
   },
 }) {
   const [values, setValues] = useState("");
-  // 方便测试
   useEffect(() => {
-    let cacheValues = localStorage.getItem("test");
+    let cacheValues = localStorage.getItem("outpatient");
     if (!cacheValues) {
       return;
     }
@@ -72,7 +77,7 @@ function Test({
           bedNO,
         };
         // 缓存数据
-        localStorage.setItem("test", JSON.stringify(val));
+        localStorage.setItem("outpatient", JSON.stringify(val));
 
         const qrcodeValue = JSON.stringify(val);
         setValues(qrcodeValue);
@@ -85,7 +90,7 @@ function Test({
     <div className={styles.App}>
       <header className={styles.header}>
         <span className={styles.logo} />
-        <div className={styles.title}>产科信息码</div>
+        <div className={styles.title}>产科门诊信息码</div>
       </header>
       <section className={styles.section}>
         <form>
@@ -202,34 +207,6 @@ function Test({
             >
               就诊卡号
             </InputItem>
-            {/* <InputItem
-              clear
-              type="text"
-              labelNumber={7}
-              maxLength={12}
-              placeholder="住院孕妇请填写"
-              onErrorClick={() => getError('inpatientNO')}
-              {...getFieldProps('inpatientNO', {
-                validateFirst: true,
-                rules: [{ required: false, message: '住院孕妇请输入住院号' }],
-              })}
-            >
-              住院号 <i className={styles.remark}>(选填)</i>
-            </InputItem>
-            <InputItem
-              clear
-              type="text"
-              labelNumber={7}
-              maxLength={12}
-              error={getFieldError('bedNO')}
-              onErrorClick={() => getError('bedNO')}
-              placeholder="住院孕妇请填写"
-              {...getFieldProps('bedNO', {
-                rules: [{ required: false, message: '住院孕妇请输入床号' }],
-              })}
-            >
-              床号 <i className={styles.remark}>(选填)</i>
-            </InputItem> */}
           </List>
           <WhiteSpace size="xl" />
           <WingBlank>
@@ -257,4 +234,4 @@ function Test({
   );
 }
 
-export default createForm()(Test);
+export default createForm()(Outpatient);
